@@ -81,7 +81,7 @@ variable "mysql_username" {
 variable "mysql_password" {
   description = "MySQL password"
   type        = string
-  default     = "12345678q"
+  default     = ""
 }
 
 variable "mysql_parameter_group_name" {
