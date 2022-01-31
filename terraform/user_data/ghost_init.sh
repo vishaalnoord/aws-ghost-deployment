@@ -19,15 +19,16 @@ exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
     # Install Ghost-CLI
     npm install ghost-cli@latest -g
 
-    # Give permission to ubuntu user, create directory 
+    # Give permission to ubuntu user, create directory
+    sudo -u ubuntu mkdir /var/www/ 
     chown -R ubuntu:ubuntu /var/www/
     sudo -u ubuntu mkdir -p /var/www/blog && cd /var/www/blog
 
     # Install Ghost, cannot be run via root (user data default)
-    sudo -u ubuntu ghost install \
+        sudo -u ubuntu ghost install \
         --url "${url}" \
         --admin-url "${admin_url}" \
-        --db "mysql" \
+	ghost install --db=sqlite3 \
         --dbhost "${endpoint}" \
         --dbuser "${username}" \
         --dbpass "${password}" \
