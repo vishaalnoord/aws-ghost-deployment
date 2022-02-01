@@ -1,8 +1,8 @@
 terraform {
   backend "s3" {
     encrypt = true
-    bucket  = ""
-    region  = ""
+    bucket  = "vishaalnoord"
+    region  = "eu-west-3"
     key     = ""
   }
 }
